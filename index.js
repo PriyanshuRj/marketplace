@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({
     extended: false
   }));
 
-app.use("/",router);
+app.use("/",router);  // Using router for all the incoming HTTP requests
+
 app.listen(port, function(err){
     if(err){
         console.log(err);
