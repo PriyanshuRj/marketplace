@@ -91,3 +91,9 @@ Response:
     }
 }
 ```
+
+## Testing the API's
+
+you can test the apis using the testing command
+1. Navigate to the marketplace directory
+2. Run `npm test` comand to test all the API's in the project.
