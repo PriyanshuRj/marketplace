@@ -4,7 +4,8 @@
   "description": "A API based backend to serve the request for market rates ofr product ",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 10000"
+    "test": "mocha --timeout 10000",
+    "start":"node index.js"
   },
   "author": "PriyanshuRj",
   "license": "ISC",
