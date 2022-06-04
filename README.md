@@ -100,7 +100,7 @@ Response:
 you can test the apis using the testing command
 1. Navigate to the marketplace directory
 2. Navigate to `marketplace\test\getreport`
-3. At line no. 47 `.get('/reports?reprtID=<ID_OF_A_CREATED_REPORT>')` replace `<ID_OF_A_CREATED_REPORT>` with an id of a created report you can create a report by the POST `/reposts` API and have the id in response of the POST request with name `reportID`
-4. save the file an example id looks like `629af56b6d0664645c0e6967` so the line no. 47 will look like 
+3. At line no. 20 `.get('/reports?reprtID=<ID_OF_A_CREATED_REPORT>')` replace `<ID_OF_A_CREATED_REPORT>` with an id of a created report you can create a report by the POST `/reposts` API and have the id in response of the POST request with name `reportID`
+4. save the file an example id looks like `629af56b6d0664645c0e6967` so the line no. 20 will look like 
 `.get('/reports?reprtID=629af56b6d0664645c0e6967')` after replacing `<ID_OF_A_CREATED_REPORT>`
 5. Run `npm test` comand to test all the API's in the project.

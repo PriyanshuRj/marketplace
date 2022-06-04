@@ -17,7 +17,7 @@ describe('Reports', () => {
   describe('/GET report with reportID', () => {
     it('it should GET the desired report', (done) => {
       chai.request(server)
-        .get('/reports?reportID=629af20a59bda2d453faf7cc')
+        .get('/reports?reportID=<ID_OF_A_CREATED_REPORT>')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -41,10 +41,10 @@ describe('Reports', () => {
   });
 
   // Getting data with incorrect format of query
-  describe('/GET report with reportID', () => {
+  describe('/GET report with wrong format of reportID', () => {
     it('it should not GET any report', (done) => {
       chai.request(server)
-        .get('/reports?reprtID=<ID_OF_A_CREATED_REPORT>')
+        .get('/reports?reprtID=629af56b6d0664645c0e6960')
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.be.a('object');
