@@ -9,6 +9,7 @@ module.exports.createReport = async (req, res) => {
         const price = (reportDetails.price) / (reportDetails.convFctr);  //converting the price to price in kg
         Report.findOne({ marketID: reportDetails.marketID, cmdtyID: reportDetails.cmdtyID }, async (err, report) => {
             if (report) {
+                report.users.push(reportDetails.userID);
                 report.price = ((report.price + price)/2);
                 report.save();
                 res.status(200).json({
@@ -19,7 +20,7 @@ module.exports.createReport = async (req, res) => {
             else {
 
                 const newReport = await Report({
-                    userID: reportDetails.userID,
+                    users: [reportDetails.userID],
                     marketID: reportDetails.marketID,
                     marketName: reportDetails.marketName,
                     cmdtyID: reportDetails.cmdtyID,
@@ -44,12 +45,30 @@ module.exports.createReport = async (req, res) => {
 module.exports.getreports = (req, res) => {
     const id = req.query.reportID;
     if (id) {
-        Report.findOne({ _id: id }, (err, reports) => {
+        Report.findOne({ _id: id }, (err, report) => {
             if (err) {
                 res.status(400).json({ message: "Error fetching reports" });
             }
             else {
-                res.status(200).json({ reports });
+                if(report){
+                    res.status(200).json({
+                        "_id": report._id,
+                        "cmdtyName": report.cmdtyName,
+                        "cmdtyID": report.cmdtyID,
+                        "marketID": report.marketID,
+                        "marketName": report.marketName,
+                        "users": report.users,
+                        "timestamp": report.updatedAt,
+                        "priceUnit": report.priceUnit,
+                        "price": report.price
+                    });
+                }
+                else{
+                    res.status(404).json({
+                        message:"No report with this ID found"
+                    });
+                }
+                
             }
         })
     }

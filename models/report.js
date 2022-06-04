@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 // Schema for the report send by the user
 const reportSchema = new mongoose.Schema({
-    userID:{
-        type:String,
+    users:{
+        type:[String],
         required:true
     },
     marketID:{
@@ -33,7 +33,8 @@ const reportSchema = new mongoose.Schema({
     price: {
         type:Number,
         required:true
-    },
-});
+    }},
+    {timestamps:true}
+);
 
 module.exports = new mongoose.model('Report',reportSchema);
