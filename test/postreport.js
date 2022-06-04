@@ -5,7 +5,7 @@ const req = require('express/lib/request');
 let server = require('../index');
 let should = chai.should();
 chai.use(chaiHttp);
-//Our parent block
+//Our parent block for reports test
 describe('Reports', () => {
 
      /*
