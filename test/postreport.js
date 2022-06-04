@@ -8,10 +8,10 @@ chai.use(chaiHttp);
 //Our parent block for reports test
 describe('Reports', () => {
 
-     /*
-      * Test the /POST route
-      * Contains 6 Tests
-      */
+    /*
+     * Test the /POST route
+     * Contains 6 Tests
+     */
 
     //  Posting with all the required data
     describe('/POST report with all the data', () => {
@@ -39,8 +39,8 @@ describe('Reports', () => {
 
                     done();
                 });
-            
-            
+
+
         });
     });
     //  Posting two consecutive report with all the required data with same marketID-cmdtyID so they give same reportID
@@ -67,35 +67,35 @@ describe('Reports', () => {
                     res.body.should.be.a('object');
                     res.body.status.should.be.eql("success");
                     repid = res.body.reportID;
-                    
+
                 });
-                
-                let secondReport = {
-                    "reportDetails": {
-                        "userID": "user-2",
-                        "marketID": "market-1",
-                        "marketName": "Vashi Navi Mumbai",
-                        "cmdtyID": "cmdty-1",
-                        "marketType": "Mandi",
-                        "cmdtyName": "Potato",
-                        "priceUnit": "Quantal",
-                        "convFctr": 100,
-                        "price": 1600
-                    }
+
+            let secondReport = {
+                "reportDetails": {
+                    "userID": "user-2",
+                    "marketID": "market-1",
+                    "marketName": "Vashi Navi Mumbai",
+                    "cmdtyID": "cmdty-1",
+                    "marketType": "Mandi",
+                    "cmdtyName": "Potato",
+                    "priceUnit": "Quantal",
+                    "convFctr": 100,
+                    "price": 1600
                 }
-                chai.request(server)
+            }
+            chai.request(server)
                 .post('/reports').send(secondReport)
                 .end((err, res) => {
-                    
+
                     res.should.have.status(200);
                     res.body.should.be.a('object');
                     res.body.status.should.be.eql("success");
                     res.body.reportID.should.be.eql(repid);  // reportID should be same as the first report as same marketID-cmdtyID
                     done();
                 });
-            });
+        });
     });
-    
+
 
     //  Posting with  with one data field missing
     describe('/POST report with one data field missing', () => {
@@ -164,7 +164,7 @@ describe('Reports', () => {
         });
     });
 
-     //  Posting with  with data missing
+    //  Posting with  with data missing
     describe('/POST report with data missing', () => {
         it('it should not POST the given report', (done) => {
             let report = {}

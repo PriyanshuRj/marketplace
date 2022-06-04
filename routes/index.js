@@ -3,8 +3,8 @@ const router = express.Router();
 const reportController = require('../controllers/reportController');
 
 // Testing API for testing if the backend is runnung(warmup API)
-router.get("/",(req,res)=>{
-    res.status(200).json({message:"The server is up and runniging"});
+router.get("/", (req, res) => {
+    res.status(200).json({ message: "The server is up and runniging" });
 });
 
 // Post API for creating the Report of a market
@@ -20,8 +20,8 @@ router.get("/",(req,res)=>{
         convFctr: {type:Number}
         price: {type:Number}
 */
-router.post("/reports",reportController.createReport);
+router.post("/reports", reportController.createReport);
 
 // GET API for reciving the report of a market requires Query parameter reportID
-router.get("/reports",reportController.getreports);
+router.get("/reports", reportController.getreports);
 module.exports = router;

@@ -10,10 +10,10 @@ chai.use(chaiHttp);
 //Our parent block for reports test
 describe('Reports', () => {
 
-   /*
-    * Test the /GET route
-    * Contains 5 Tests
-    */
+  /*
+   * Test the /GET route
+   * Contains 5 Tests
+   */
 
   // Getting data with mentioning correct reportID
   describe('/GET report with reportID', () => {
@@ -55,19 +55,19 @@ describe('Reports', () => {
         });
     });
   });
-    // Getting data with incorrect format of OF reportID (using unsupported charectors or not equal to orignal length of a reportID)
-    describe('/GET report with wrong format of reportID', () => {
-      it('it should not GET any report', (done) => {
-        chai.request(server)
-          .get('/reports?reportID=629a<>56b6d0664645c0e69')
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.a('object');
-            res.body.message.should.be.eql("Error fetching reports");
-            done();
-          });
-      });
+  // Getting data with incorrect format of OF reportID (using unsupported charectors or not equal to orignal length of a reportID)
+  describe('/GET report with wrong format of reportID', () => {
+    it('it should not GET any report', (done) => {
+      chai.request(server)
+        .get('/reports?reportID=629a<>56b6d0664645c0e69')
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.message.should.be.eql("Error fetching reports");
+          done();
+        });
     });
+  });
 
   // Getting the data without mentioning the reportID
   describe('/GET report without reportID', () => {

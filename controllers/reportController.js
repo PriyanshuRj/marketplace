@@ -10,7 +10,7 @@ module.exports.createReport = async (req, res) => {
         Report.findOne({ marketID: reportDetails.marketID, cmdtyID: reportDetails.cmdtyID }, async (err, report) => {
             if (report) {
                 report.users.push(reportDetails.userID);
-                report.price = ((report.price + price)/2);
+                report.price = ((report.price + price) / 2);
                 report.save();
                 res.status(200).json({
                     status: "success",
@@ -50,7 +50,7 @@ module.exports.getreports = (req, res) => {
                 res.status(400).json({ message: "Error fetching reports" });
             }
             else {
-                if(report){
+                if (report) {
                     res.status(200).json({
                         "_id": report._id,
                         "cmdtyName": report.cmdtyName,
@@ -63,12 +63,12 @@ module.exports.getreports = (req, res) => {
                         "price": report.price
                     });
                 }
-                else{
+                else {
                     res.status(404).json({
-                        message:"No report with this ID found"
+                        message: "No report with this ID found"
                     });
                 }
-                
+
             }
         })
     }
