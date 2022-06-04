@@ -8,8 +8,9 @@ chai.use(chaiHttp);
 //Our parent block
 describe('Reports', () => {
 
-    /*
+     /*
       * Test the /POST route
+      * Contains 6 Tests
       */
 
     //  Posting with all the required data
@@ -89,7 +90,7 @@ describe('Reports', () => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
                     res.body.status.should.be.eql("success");
-                    res.body.reportID.should.be.eql(repid);
+                    res.body.reportID.should.be.eql(repid);  // reportID should be same as the first report as same marketID-cmdtyID
                     done();
                 });
             });

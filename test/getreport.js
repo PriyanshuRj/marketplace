@@ -9,8 +9,9 @@ chai.use(chaiHttp);
 //Our parent block
 describe('Reports', () => {
 
-  /*
+   /*
     * Test the /GET route
+    * Contains 5 Tests
     */
 
   // Getting data with mentioning correct reportID
