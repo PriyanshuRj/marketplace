@@ -3,9 +3,9 @@
 This repository contains  ExpressJS API's based backend code that can be used to add and get a report of a market/mandi.
 
 
-## 👨🏻‍🔬Set up and run The Server
+## 👨🏻‍🔬 Set up and run The Server
 
-### 📃Clone
+### 📃 Clone
 
 Clone the repository from GitHub.
 
@@ -15,7 +15,7 @@ $ git clone https://github.com/PriyanshuRj/marketplace.git
 
 
 
-#### 📂Create your .env file
+#### 📂 Create your .env file
 
 1. After cloning the project navigate to the project directory using `cd marketplace` command.
 2. Generate `.env` in the directory.
@@ -37,7 +37,7 @@ PORT=8000
 ```
 
 
-### 💻Install Dependencies and Run the Server
+### 💻 Install Dependencies and Run the Server
 
 ```
 $ npm install
@@ -46,7 +46,7 @@ $ npm run start
 Now, use you can use the use the API's and try them out.
 
 
-## ⚙️Specification
+## ⚙️ Specification
 
 ### /reports POST
 This endpoint can be used to add a report for a given marketor mandi.
@@ -72,7 +72,7 @@ Content-type: application/json;
 Response:
 {
     "status": "success",
-    "reportID": ID_OF_THE_RESPIVE_REPORT
+    "reportID": <ID_OF_THE_RESPIVE_REPORT>
 }
 ```
 
@@ -84,21 +84,18 @@ GET https://localhost:3000/reports?reportID=<ID_OF_THE_REQUIRED_REPORT> HTTP/1.1
 
 Response:
 {
-    "reports": {
-        "userID": "string",
-        "marketID": "string",
-        "marketName": "string",
-        "cmdtyID": "string",
-        "marketType": "string",
-        "cmdtyName": "string",
-        "priceUnit": "string",
-        "convFctr": "number",
-        "price": "number"
-    }
+    "_id": "string",
+    "cmdtyName": "string",
+    "cmdtyID": "string",
+    "marketID": "string",
+    "marketName": "string",
+    "users": "Array",  
+    "priceUnit": "string",
+    "price": "number"
 }
 ```
 
-## 🧪Testing the API's
+## 🧪 Testing the API's
 
 you can test the apis using the testing command
 1. Navigate to the marketplace directory
