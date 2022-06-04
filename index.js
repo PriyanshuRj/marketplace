@@ -1,11 +1,16 @@
+// Imports
 require("dotenv").config();
 const express = require('express');
 var bodyParser = require('body-parser')
 const app = express();
 const cors = require('cors');
 const port = process.env.PORT || 8080;
+
+// Fetching Local files
 const db = require('./config/mongoose');
 const router = require('./routes/index');
+
+// Using middlewares
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

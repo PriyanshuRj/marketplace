@@ -43,7 +43,7 @@ describe('Reports', () => {
   });
 
   // Getting data with incorrect format of query
-  describe('/GET report with wrong format of reportID', () => {
+  describe('/GET report with wrong format of query', () => {
     it('it should not GET any report', (done) => {
       chai.request(server)
         .get('/reports?reprtID=629af56b6d0664645c0e6960')
