@@ -53,11 +53,11 @@ describe('Reports', () => {
         });
     });
   });
-    // Getting data with incorrect format of OF reportID (using unsupported charectors)
+    // Getting data with incorrect format of OF reportID (using unsupported charectors or not equal to orignal length of a reportID)
     describe('/GET report with wrong format of reportID', () => {
       it('it should not GET any report', (done) => {
         chai.request(server)
-          .get('/reports?reprtID=6775>>66<<587jghuvhkvk>>')
+          .get('/reports?reportID=629a<>56b6d0664645c0e69')
           .end((err, res) => {
             res.should.have.status(400);
             res.body.should.be.a('object');
